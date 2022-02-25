@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pd:pipeline xmlns:pd="http://www.bluebee.com/pipelinedefinition">
+    <pd:dataInputs>
+        <pd:dataInput code="Sequencing_Run_Directory_tar" format="ZIP" type="FILE" required="true" multiValue="false">
+            <pd:label>Sequencing_Run_Directory_tar</pd:label>
+            <pd:description></pd:description>
+        </pd:dataInput>
+        <pd:dataInput code="TSO500_resource_dir" format="UNKNOWN" type="DIRECTORY" required="true" multiValue="false">
+            <pd:label>TSO500_resource_dir</pd:label>
+            <pd:description></pd:description>
+        </pd:dataInput>
+        <pd:dataInput code="samplesheet" format="CSV" type="FILE" required="true" multiValue="false">
+            <pd:label>samplesheet</pd:label>
+            <pd:description></pd:description>
+        </pd:dataInput>
+    </pd:dataInputs>
+    <pd:steps>
+        <pd:step execution="MANDATORY" code="General">
+            <pd:label>General</pd:label>
+            <pd:description>General parameters</pd:description>
+            <pd:tool code="generalparameters">
+                <pd:label>generalparameters</pd:label>
+                <pd:description></pd:description>
+                <pd:parameter code="tso500_solid__output_directory_root" minValues="1" maxValues="1" classification="USER">
+                    <pd:label>output_directory_root</pd:label>
+                    <pd:description></pd:description>
+                    <pd:stringType/>
+                    <pd:value>analysis_results</pd:value>
+                </pd:parameter>
+                <pd:parameter code="tso500_solid__single_lane_mode" minValues="1" maxValues="1" classification="USER">
+                    <pd:label>single_lane_mode</pd:label>
+                    <pd:description></pd:description>
+                    <pd:stringType/>
+                    <pd:value>True</pd:value>
+                </pd:parameter>
+                <pd:parameter code="tso500_solid__first_tile_only" minValues="1" maxValues="1" classification="USER">
+                    <pd:label>first_tile_only</pd:label>
+                    <pd:description></pd:description>
+                    <pd:stringType/>
+                    <pd:value>False</pd:value>
+                </pd:parameter>
+                <pd:parameter code="tso500_solid__novaseq" minValues="1" maxValues="1" classification="USER">
+                    <pd:label>is_novaseq</pd:label>
+                    <pd:description></pd:description>
+                    <pd:stringType/>
+                    <pd:value>False</pd:value>
+                </pd:parameter>
+                <pd:parameter code="tso500_solid__demultiplex" minValues="1" maxValues="1" classification="USER">
+                    <pd:label>demultiplex</pd:label>
+                    <pd:description></pd:description>
+                    <pd:stringType/>
+                    <pd:value>True</pd:value>
+                </pd:parameter>
+            </pd:tool>
+        </pd:step>
+    </pd:steps>
+</pd:pipeline>
