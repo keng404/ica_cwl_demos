@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pipeline xmlns:pd="http://www.bluebee.com/pipelinedefinition">
+    <dataInputs>
+        <dataInput code="Sequencing_Run_Directory_tar" format="ZIP" type="FILE" required="true" multiValue="false">
+            <label>Sequencing_Run_Directory_tar</label>
+            <description></description>
+        </dataInput>
+        <dataInput code="TSO500_resource_dir" format="UNKNOWN" type="DIRECTORY" required="true" multiValue="false">
+            <label>TSO500_resource_dir</label>
+            <description></description>
+        </dataInput>
+        <dataInput code="samplesheet" format="CSV" type="FILE" required="true" multiValue="false">
+            <label>samplesheet</label>
+            <description></description>
+        </dataInput>
+    </dataInputs>
+    <steps>
+        <step execution="MANDATORY" code="General">
+            <label>General</label>
+            <description>General parameters</description>
+            <tool code="generalparameters">
+                <label>generalparameters</label>
+                <description></description>
+                <parameter code="tso500_solid__output_directory_root" minValues="1" maxValues="1" classification="USER">
+                    <label>output_directory_root</label>
+                    <description></description>
+                    <stringType/>
+                    <value>analysis_results</value>
+                </parameter>
+                <parameter code="tso500_solid__single_lane_mode" minValues="1" maxValues="1" classification="USER">
+                    <label>single_lane_mode</label>
+                    <description></description>
+                    <stringType/>
+                    <value>True</value>
+                </parameter>
+                <parameter code="tso500_solid__first_tile_only" minValues="1" maxValues="1" classification="USER">
+                    <label>first_tile_only</label>
+                    <description></description>
+                    <stringType/>
+                    <value>False</value>
+                </parameter>
+                <parameter code="tso500_solid__novaseq" minValues="1" maxValues="1" classification="USER">
+                    <label>is_novaseq</label>
+                    <description></description>
+                    <stringType/>
+                    <value>False</value>
+                </parameter>
+                <parameter code="tso500_solid__demultiplex" minValues="1" maxValues="1" classification="USER">
+                    <label>demultiplex</label>
+                    <description></description>
+                    <stringType/>
+                    <value>True</value>
+                </parameter>
+            </tool>
+        </step>
+    </steps>
+</pipeline>
